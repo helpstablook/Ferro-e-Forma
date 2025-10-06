@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Login - Ferro e Forma</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#d46c11",
+              "background-light": "#f8f7f6",
+              "background-dark": "#221810",
+            },
+            fontFamily: {
+              "display": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+  <style>
+      .wood-texture {
+        background-image: url("images/wood-texture.jpg");
+        box-shadow: inset 0 4px 6px -1px rgb(0 0 0 / 0.1), inset 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      }
+    </style>
+  <script defer src="js/auth.js"></script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#221810] dark:text-[#f8f7f6]">
+<header class="wood-texture bg-cover bg-center">
+  <div class="bg-black/10 dark:bg-black/30">
+    <div class="container mx-auto flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-3xl">chair</span>
+        <h1 class="text-xl font-bold text-white">Ferro e Forma</h1>
+      </div>
+      <nav class="hidden items-center gap-6 md:flex">
+        <a class="text-sm font-medium text-white transition-colors hover:text-primary" href="index.html">Home</a>
+        <a class="text-sm font-medium text-white transition-colors hover:text-primary" href="index.html#novidades">Novidades</a>
+        <a class="text-sm font-medium text-white transition-colors hover:text-primary" href="index.html#contato">Contato</a>
+        <a class="text-sm font-medium text-white transition-colors hover:text-primary" href="products.html">Produtos</a>
+        <a class="text-sm font-medium text-white transition-colors hover:text-primary" href="cart.html">Carrinho</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <button class="flex items-center gap-2 rounded-lg bg-white/20 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30">
+          <span class="material-symbols-outlined">login</span>
+          <span class="hidden sm:inline">Login</span>
+        </button>
+        <button class="relative rounded-lg bg-white/20 p-2 text-white transition-colors hover:bg-white/30">
+          <span class="material-symbols-outlined">favorite</span>
+        </button>
+        <button class="relative rounded-lg bg-white/20 p-2 text-white transition-colors hover:bg-white/30">
+          <span class="material-symbols-outlined">shopping_bag</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="container mx-auto flex-1 px-4 py-10 sm:px-6 lg:px-8">
+  <div class="max-w-md mx-auto rounded-lg bg-white/5 dark:bg-black/10 shadow-lg p-6">
+    <h2 class="text-3xl font-bold text-[#221810] dark:text-[#f8f7f6] mb-6 text-center">Login</h2>
+    <form id="login-form" class="flex flex-col gap-4">
+      <label for="login-email" class="text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Email:</label>
+      <input type="email" id="login-email" required class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
+      <label for="login-password" class="text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Senha:</label>
+      <input type="password" id="login-password" required class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
+      <button type="submit" class="mt-4 w-full rounded-lg bg-primary px-6 py-3 text-base font-bold text-white shadow-lg transition-transform hover:scale-105">Entrar</button>
+    </form>
+    <p class="mt-4 text-center text-sm">Não possui conta? <a href="register.html" class="text-primary hover:underline">Cadastre-se</a></p>
+    <div id="login-message" class="mt-4 text-sm text-center font-semibold text-red-500"></div>
+  </div>
+</main>
+<footer class="bg-[#221810]/5 dark:bg-black/20">
+  <div class="container mx-auto px-4 py-6 text-center text-sm text-[#221810]/60 dark:text-[#f8f7f6]/60 sm:px-6 lg:px-8">
+    <p>© 2025 Ferro e Forma | Todos os direitos reservados</p>
+  </div>
+</footer>
+</body>
+</html>
