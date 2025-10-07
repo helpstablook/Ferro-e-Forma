@@ -73,6 +73,26 @@ if(registerForm){
   });
 }
 
+// Acessibilidade
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.getElementById('toggle-dark-mode');
+    const body = document.body;
+    const isDarkMode = localStorage.getItem('theme') === 'dark';
+  
+    if (isDarkMode) {
+        body.classList.add('dark');
+    }
+ 
+    toggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        if (body.classList.contains('dark')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
+});
+
 // Login
 const loginForm = document.getElementById('login-form');
 if(loginForm){
