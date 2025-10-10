@@ -54,7 +54,7 @@ INSERT INTO `produtos` (`nome`, `descricao`, `preco`, `imagem`, `estoque`, `cate
 
 -- Escritório (ID 3)
 INSERT INTO `produtos` (`nome`, `descricao`, `preco`, `imagem`, `estoque`, `categoria_id`) VALUES
-('Escrivaninha Industrial', 'Escrivaninha com estrutura metálica e tampo em madeira. Ideal para home office.', 526.00, 'image/Escrivaninha.png', 6, 3),
+('Escrivaninha Industrial', 'Escrivaninha com estrutura metálica e tampo em madeira. Ideal para home office.', 526.00, 'image/Escrivaninha.png', 6, 3), 
 ('Cadeira de Escritório Industrial', 'Cadeira com rodízios, estrutura de aço e assento estofado.', 399.00, 'image/CadeiraEscritorio.png', 7, 3);
 
 -- Cozinha (ID 4)
