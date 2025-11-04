@@ -1,0 +1,79 @@
+/* Conteúdo ADICIONAL (ou completo) para style.css */
+
+.wood-texture {
+    /* O caminho volta uma pasta (..) e entra em 'images' */
+    background-image: url("../images/wood-texture.jpg");
+    box-shadow: inset 0 4px 6px -1px rgb(0 0 0 / 0.1), inset 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* Regras específicas movidas de products.html */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.add-to-cart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+.add-to-cart-btn:hover {
+    background-color: #c05f0e;
+}
+
+/* Conteúdo NOVO para style.css (adição para o Carrinho) */
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgba(255, 255, 255, 0.05); /* Um pouco de fundo escuro para destacar no dark mode */
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    margin-right: 1rem;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.cart-item-price {
+    color: #d46c11; /* Cor primária */
+    font-weight: bold;
+    margin-top: 0.25rem;
+}
+
+.btn-primary {
+    background-color: #d46c11;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    text-decoration: none; /* Para o link de Finalizar Compra */
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #c05f0e;
+}
