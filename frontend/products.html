@@ -69,6 +69,19 @@
         </div>
         <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
     </main>
+    <div class="mb-6 flex items-center justify-between">
+    <h2 class="text-3xl font-bold text-[#221810] dark:text-[#f8f7f6]">Nossos Produtos</h2>
+    
+    <div class="flex items-center gap-2">
+        <label for="sort-by" class="text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70 hidden sm:block">Ordenar por:</label>
+        <select id="sort-by" class="rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-white dark:bg-black/10 text-[#221810] dark:text-[#f8f7f6]">
+            <option value="relevance">Mais Relevantes</option>
+            <option value="price-asc">Menor Preço</option>
+            <option value="price-desc">Maior Preço</option>
+        </select>
+    </div>
+</div>
+<div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
 
     <footer class="wood-texture bg-cover bg-center text-white">
         <div class="bg-black/40">
