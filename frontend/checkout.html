@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Finalizar Compra - Ferro e Forma</title>
+    <title>Finalizar Compra e Pagamento - Ferro e Forma</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
@@ -27,10 +27,11 @@
             },
         }
     </script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-[#221810] dark:text-[#f8f7f6]">
     <div id="cart-notification" class="fixed bottom-4 right-4 p-4 bg-green-500 text-white rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300"></div>
+    
     <header class="wood-texture bg-cover bg-center">
         <div class="bg-black/10 dark:bg-black/30">
             <div class="container mx-auto flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
@@ -43,7 +44,6 @@
                     <a class="text-sm font-medium text-white transition-colors hover:text-primary" href="index.html#novidades">Novidades</a>
                     <a class="text-sm font-medium text-white transition-colors hover:text-primary" href="index.html#contato">Contato</a>
                     <a class="text-sm font-medium text-white transition-colors hover:text-primary" href="products.html">Produtos</a>
-                    <a class="text-sm font-medium text-white transition-colors hover:text-primary" href="cart.html">Carrinho</a>
                 </nav>
                 <div class="flex items-center gap-4">
                     <button id="theme-toggle" class="relative rounded-lg bg-white/20 p-2 text-white transition-colors hover:bg-white/30">
@@ -69,58 +69,139 @@
             </div>
         </div>
     </header>
+
     <div class="container mx-auto flex-1 px-4 py-10 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-[#221810] dark:text-[#f8f7f6]">Finalizar Compra</h2>
-        <div id="checkout-message" class="mt-4 text-sm font-semibold text-red-500"></div>
-        <div id="checkout-form-container" class="rounded-lg bg-white/5 dark:bg-black/10 shadow-lg p-6 mt-6" style="display: none;">
-            <h3 class="text-xl font-bold text-[#221810] dark:text-[#f8f7f6]">Resumo do Pedido e Pagamento</h3>
-            <div class="order-summary mt-4 rounded-lg p-4 bg-background-light/50 dark:bg-background-dark/50">
-                <h4 class="text-lg font-bold text-[#221810] dark:text-[#f8f7f6]">Seu Pedido:</h4>
-                <ul id="order-summary-items" class="mt-2"></ul>
-                <p id="summary-total" class="font-bold text-lg mt-4 text-right">Total: R$ 0,00</p>
-            </div>
-            <hr class="my-6 border-t border-gray-200 dark:border-gray-700" />
-            <form id="checkout-form">
-                <div id="checkout-form-inputs">
-                    <h4 class="text-lg font-bold text-[#221810] dark:text-[#f8f7f6] mb-4">Detalhes da Entrega</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="col-span-1">
-                            <label for="address" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Endereço Completo:</label>
-                            <input type="text" id="address" name="address" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
-                        </div>
-                        <div class="col-span-1">
-                            <label for="city" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Cidade:</label>
-                            <input type="text" id="city" name="city" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
-                        </div>
-                        <div class="col-span-1">
-                            <label for="zipcode" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">CEP:</label>
-                            <input type="text" id="zipcode" name="zipcode" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
+        <h2 class="text-3xl font-bold text-[#221810] dark:text-[#f8f7f6] mb-8">Finalizar Compra e Pagamento</h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-1 space-y-8 order-2 lg:order-1">
+
+                <div class="rounded-lg bg-white/5 dark:bg-black/10 shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-[#221810] dark:text-[#f8f7f6] mb-4">Resumo do Pedido</h3>
+                    <div class="order-summary rounded-lg p-4 bg-background-light/50 dark:bg-background-dark/50">
+                        <ul id="order-summary-items" class="mt-2 text-sm space-y-1">
+                            <li class="flex justify-between border-b border-gray-300 dark:border-gray-700 pb-1"><span>Mesa Industrial (x1)</span><span>R$ 1.250,00</span></li>
+                            <li class="flex justify-between border-b border-gray-300 dark:border-gray-700 pb-1"><span>Cadeira Conforto (x2)</span><span>R$ 640,00</span></li>
+                        </ul>
+                        <div class="flex justify-between font-bold text-lg mt-4 pt-2 border-t border-primary/50">
+                            <span>Total:</span>
+                            <span id="summary-total">R$ 1.890,00</span>
                         </div>
                     </div>
-                    <h4 class="text-lg font-bold text-[#221810] dark:text-[#f8f7f6] mt-6 mb-4">Informações de Pagamento (Simulado)</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="col-span-2">
-                            <label for="card-name" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Nome no Cartão:</label>
-                            <input type="text" id="card-name" name="card_name" placeholder="Como aparece no cartão" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
-                        </div>
-                        <div class="col-span-2">
-                            <label for="card-number" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Número do Cartão:</label>
-                            <input type="text" id="card-number" name="card_number" placeholder="XXXX XXXX XXXX XXXX" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
-                        </div>
-                        <div class="col-span-1">
-                            <label for="card-expiry" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Validade (MM/AA):</label>
-                            <input type="text" id="card-expiry" name="card_expiry" placeholder="MM/AA" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
-                        </div>
-                        <div class="col-span-1">
-                            <label for="card-cvc" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">CVC:</label>
-                            <input type="text" id="card-cvc" name="card_cvc" placeholder="XXX" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
-                        </div>
-                    </div>
-                    <button type="submit" id="place-order-btn" class="mt-6 w-full rounded-lg bg-primary px-6 py-3 text-base font-bold text-white shadow-lg transition-transform hover:scale-105">Finalizar Compra e Pagar</button>
                 </div>
-            </form>
+
+                <div class="rounded-lg bg-white/5 dark:bg-black/10 shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-[#221810] dark:text-[#f8f7f6] mb-4">Detalhes da Entrega</h3>
+                    <form id="address-form" class="space-y-4">
+                        <div class="grid grid-cols-1 gap-4">
+                            <div>
+                                <label for="address" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Endereço Completo:</label>
+                                <input type="text" id="address" name="address" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" placeholder="Rua, número e complemento" />
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="city" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Cidade:</label>
+                                    <input type="text" id="city" name="city" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
+                                </div>
+                                <div>
+                                    <label for="zipcode" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">CEP:</label>
+                                    <input type="text" id="zipcode" name="zipcode" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full rounded-lg bg-primary/20 px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-primary/30">Atualizar Endereço</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 order-1 lg:order-2">
+                <div class="rounded-lg bg-white/5 dark:bg-black/10 shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-[#221810] dark:text-[#f8f7f6] mb-6">Selecione o Método de Pagamento</h3>
+                    
+                    <form id="payment-form" class="space-y-6">
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 border-b border-gray-200 dark:border-gray-700 pb-2">
+                            <button type="button" data-tab="credit-card" class="payment-tab px-4 py-2 font-medium border-b-2 border-primary text-primary transition-colors duration-200">
+                                Cartão de Crédito/Débito
+                            </button>
+                            <button type="button" data-tab="pix" class="payment-tab px-4 py-2 font-medium border-b-2 border-transparent hover:border-primary/50 transition-colors duration-200">
+                                PIX
+                            </button>
+                            <button type="button" data-tab="boleto" class="payment-tab px-4 py-2 font-medium border-b-2 border-transparent hover:border-primary/50 transition-colors duration-200">
+                                Boleto
+                            </button>
+                        </div>
+
+                        <div id="payment-content">
+                            <div id="credit-card-content" class="payment-option space-y-4">
+                                <p class="text-sm text-green-600 dark:text-green-400 font-medium">10% de desconto no Crédito à vista ou em até 12x sem juros.</p>
+                                
+                                <div>
+                                    <label for="card-number" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Número do Cartão:</label>
+                                    <input type="text" id="card-number" name="card_number" placeholder="XXXX XXXX XXXX XXXX" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
+                                </div>
+                                <div>
+                                    <label for="card-name" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Nome no Cartão:</label>
+                                    <input type="text" id="card-name" name="card_name" placeholder="Como aparece no cartão" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="card-expiry" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Validade (MM/AA):</label>
+                                        <input type="text" id="card-expiry" name="card_expiry" placeholder="MM/AA" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
+                                    </div>
+                                    <div>
+                                        <label for="card-cvc" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">CVC:</label>
+                                        <input type="text" id="card-cvc" name="card_cvc" placeholder="XXX" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="installments" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Parcelas:</label>
+                                    <select id="installments" name="installments" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                        <option value="1">1x de R$ 1.890,00 (10% OFF)</option>
+                                        <option value="3">3x de R$ 630,00 sem juros</option>
+                                        <option value="6">6x de R$ 315,00 sem juros</option>
+                                        <option value="12">12x de R$ 157,50 sem juros</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div id="pix-content" class="payment-option space-y-4 hidden">
+                                <p class="text-sm text-green-600 dark:text-green-400 font-medium">Receba 15% de desconto no pagamento via PIX.</p>
+                                <div class="bg-primary/10 p-4 rounded-lg text-center">
+                                    <h4 class="font-bold text-primary mb-2">Total com 15% de Desconto: R$ 1.606,50</h4>
+                                    <p class="text-sm">Ao finalizar a compra, será gerado um QR Code ou um código Copia e Cola para pagamento.</p>
+                                </div>
+                                <div>
+                                    <label for="pix-document" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">CPF ou CNPJ para emissão:</label>
+                                    <input type="text" id="pix-document" name="pix_document" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" placeholder="Apenas números" />
+                                </div>
+                            </div>
+
+                            <div id="boleto-content" class="payment-option space-y-4 hidden">
+                                <p class="text-sm text-primary font-medium">O boleto tem prazo de 3 dias úteis para compensação.</p>
+                                <div class="bg-yellow-100 dark:bg-yellow-900/50 p-4 rounded-lg text-sm text-yellow-800 dark:text-yellow-200">
+                                    <p class="font-bold mb-1">Atenção:</p>
+                                    <p>O prazo de entrega começa a contar a partir da confirmação do pagamento pelo banco (após a compensação do boleto).</p>
+                                </div>
+                                <div>
+                                    <label for="boleto-document" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">CPF ou CNPJ para emissão:</label>
+                                    <input type="text" id="boleto-document" name="boleto_document" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" placeholder="Apenas números" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-6 border-t border-gray-200 dark:border-gray-700" />
+
+                        <div id="checkout-message" class="mt-4 text-sm font-semibold text-red-500 hidden"></div>
+
+                        <button type="submit" id="place-order-btn" class="w-full rounded-lg bg-primary px-6 py-3 text-base font-bold text-white shadow-lg transition-transform hover:scale-105">
+                            Pagar e Finalizar Pedido
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
+    
     <footer class="wood-texture bg-cover bg-center text-white">
         <div class="bg-black/40">
             <div class="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
@@ -143,9 +224,9 @@
                     <div>
                         <h4 class="mb-4 text-lg font-bold">Atendimento</h4>
                         <ul class="space-y-2 text-sm">
-                            <li><a class="text-white/80 transition-colors hover:text-primary" href="#">Fale Conosco</a></li>
-                            <li><a class="text-white/80 transition-colors hover:text-primary" href="#">Perguntas Frequentes</a></li>
-                            <li><a class="text-white/80 transition-colors hover:text-primary" href="#">Política de Privacidade</a></li>
+                            <li><a class="text-white/80 transition-colors hover:text-primary" href="contact.html">Fale Conosco</a></li>
+                            <li><a class="text-white/80 transition-colors hover:text-primary" href="faq.html">Perguntas Frequentes</a></li>
+                            <li><a class="text-white/80 transition-colors hover:text-primary" href="privacy.html">Política de Privacidade</a></li>
                         </ul>
                     </div>
                     <div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Carrinho - Ferro e Forma</title>
+    <title>Perguntas Frequentes - Ferro e Forma</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
@@ -11,17 +11,16 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
         tailwind.config = {
-            // Habilita o modo escuro, que é ativado pela classe "dark"
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#d46c11", // Cor primária da marca (laranja)
-                        "background-light": "#f8f7f6", // Cor de fundo para o tema claro
-                        "background-dark": "#1a1a1a",  // Cor de fundo para o tema escuro (grafite)
+                        "primary": "#d46c11",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#1a1a1a",
                     },
                     fontFamily: {
-                        "display": ["Manrope"] // Define a fonte padrão da página
+                        "display": ["Manrope"]
                     },
                     borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                 },
@@ -32,7 +31,6 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-[#221810] dark:text-[#f8f7f6]">
     <div id="cart-notification" class="fixed bottom-4 right-4 p-4 bg-green-500 text-white rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300"></div>
-    
     <header class="wood-texture bg-cover bg-center">
         <div class="bg-black/10 dark:bg-black/30">
             <div class="container mx-auto flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
@@ -70,20 +68,45 @@
             </div>
         </div>
     </header>
-    
-    <div class="container mx-auto flex-1 px-4 py-10 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-[#221810] dark:text-[#f8f7f6] mb-6">Seu Carrinho</h2>
-        <div id="empty-cart-message" class="text-center text-lg text-[#221810]/70 dark:text-[#f8f7f6]/70" style="display:none;">Seu carrinho está vazio.</div>
-        <div id="cart-items-container" class="grid gap-4 mt-6"></div>
-        <div id="cart-summary" class="text-right mt-6">
-            <h3 class="text-xl font-bold text-[#221810] dark:text-[#f8f7f6]">Total do Carrinho: R$ <span id="cart-total">0,00</span></h3>
-            <a href="checkout.html" id="checkout-btn" class="mt-4 inline-block rounded-lg bg-primary px-6 py-3 text-base font-bold text-white shadow-lg transition-transform hover:scale-105" style="display:none;">Finalizar Compra</a>
+
+    <main class="container mx-auto flex-1 px-4 py-10 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-[#221810] dark:text-[#f8f7f6] mb-8 text-center">Perguntas Frequentes (FAQ)</h2>
+        
+        <div id="faq-container" class="max-w-3xl mx-auto space-y-4">
+            <div class="rounded-lg bg-white/5 dark:bg-black/10 shadow-lg overflow-hidden">
+                <button class="faq-question w-full flex justify-between items-center p-4 text-lg font-semibold text-left transition-colors hover:bg-primary/10">
+                    <span>Quais materiais são utilizados na fabricação dos móveis?</span>
+                    <span class="material-symbols-outlined text-primary transform transition-transform duration-300">expand_more</span>
+                </button>
+                <div class="faq-answer p-4 pt-0 text-[#221810]/80 dark:text-[#f8f7f6]/80" style="display: none;">
+                    <p>Nossos móveis são construídos primariamente com **madeira maciça de reflorestamento** (pinus e eucalipto) e **aço carbono** com pintura eletrostática, garantindo durabilidade, resistência e o autêntico visual industrial.</p>
+                </div>
+            </div>
+
+            <div class="rounded-lg bg-white/5 dark:bg-black/10 shadow-lg overflow-hidden">
+                <button class="faq-question w-full flex justify-between items-center p-4 text-lg font-semibold text-left transition-colors hover:bg-primary/10">
+                    <span>Qual o prazo de entrega para minha região?</span>
+                    <span class="material-symbols-outlined text-primary transform transition-transform duration-300">expand_more</span>
+                </button>
+                <div class="faq-answer p-4 pt-0 text-[#221810]/80 dark:text-[#f8f7f6]/80" style="display: none;">
+                    <p>O prazo de entrega varia conforme a região e a disponibilidade do produto. Você pode verificar o prazo exato inserindo seu CEP na página do produto ou no carrinho de compras. Nosso prazo médio é de 15 a 25 dias úteis.</p>
+                </div>
+            </div>
+
+            <div class="rounded-lg bg-white/5 dark:bg-black/10 shadow-lg overflow-hidden">
+                <button class="faq-question w-full flex justify-between items-center p-4 text-lg font-semibold text-left transition-colors hover:bg-primary/10">
+                    <span>Vocês oferecem garantia nos produtos?</span>
+                    <span class="material-symbols-outlined text-primary transform transition-transform duration-300">expand_more</span>
+                </button>
+                <div class="faq-answer p-4 pt-0 text-[#221810]/80 dark:text-[#f8f7f6]/80" style="display: none;">
+                    <p>Sim. Oferecemos uma garantia de 90 dias contra defeitos de fabricação em todos os nossos móveis, conforme o Código de Defesa do Consumidor. A garantia não cobre danos por mau uso ou desgaste natural.</p>
+                </div>
+            </div>
         </div>
-        <div class="text-center mt-6">
-            <a href="products.html" class="rounded-lg bg-primary/20 px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-primary/30">Continuar comprando</a>
-        </div>
-    </div>
-    
+
+        <p class="mt-8 text-center text-sm text-[#221810]/70 dark:text-[#f8f7f6]/70">Não encontrou sua resposta? <a href="contact.html" class="text-primary hover:underline font-medium">Fale diretamente conosco.</a></p>
+    </main>
+
     <footer class="wood-texture bg-cover bg-center text-white">
         <div class="bg-black/40">
             <div class="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
@@ -101,7 +124,7 @@
                             <li><a class="text-white/80 transition-colors hover:text-primary" href="index.html#novidades">Novidades</a></li>
                             <li><a class="text-white/80 transition-colors hover:text-primary" href="index.html#contato">Contato</a></li>
                             <li><a class="text-white/80 transition-colors hover:text-primary" href="products.html">Produtos</a></li>
-                            </ul>
+                        </ul>
                     </div>
                     <div>
                         <h4 class="mb-4 text-lg font-bold">Atendimento</h4>

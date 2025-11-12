@@ -27,7 +27,7 @@
             },
         }
     </script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-[#221810] dark:text-[#f8f7f6]">
     <div id="cart-notification" class="fixed bottom-4 right-4 p-4 bg-green-500 text-white rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300"></div>
@@ -69,19 +69,19 @@
         </div>
     </header>
     <main class="container mx-auto flex-1 px-4 py-10 sm:px-6 lg:px-8">
-        <div class="max-w-md mx-auto rounded-lg bg-white/5 dark:bg-black/10 shadow-lg p-6">
-            <h2 class="text-3xl font-bold text-[#221810] dark:text-[#f8f7f6] mb-6 text-center">Login</h2>
-            <form id="login-form" class="flex flex-col gap-4">
-                <label for="login-email" class="text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Email:</label>
-                <input type="email" id="login-email" required class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
-                <label for="login-password" class="text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Senha:</label>
-                <input type="password" id="login-password" required class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
-                <button type="submit" class="mt-4 w-full rounded-lg bg-primary px-6 py-3 text-base font-bold text-white shadow-lg transition-transform hover:scale-105">Entrar</button>
-            </form>
-            <p class="mt-4 text-center text-sm">Não possui conta? <a href="register.html" class="text-primary hover:underline">Cadastre-se</a></p>
-            <div id="login-message" class="mt-4 text-sm text-center font-semibold text-red-500"></div>
-        </div>
-    </main>
+    <div class="max-w-md mx-auto rounded-lg bg-white/5 dark:bg-black/10 shadow-lg p-6">
+        <h2 class="text-3xl font-bold text-[#221810] dark:text-[#f8f7f6] mb-6 text-center">Login</h2>
+        <form id="login-form" class="flex flex-col gap-4">
+            <label for="login-email" class="text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Email:</label>
+            <input type="email" id="login-email" required class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
+            <label for="login-password" class="text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Senha:</label>
+            <input type="password" id="login-password" required class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
+            <button type="submit" class="mt-4 w-full rounded-lg bg-primary px-6 py-3 text-base font-bold text-white shadow-lg transition-transform hover:scale-105">Entrar</button>
+        </form>
+        <p class="mt-4 text-center text-sm">Não possui conta? <a href="register.html" class="text-primary hover:underline">Cadastre-se</a></p>
+        <div id="login-message" class="mt-4 text-sm text-center font-semibold text-red-500"></div> 
+    </div>
+</main>
     <footer class="wood-texture bg-cover bg-center text-white">
         <div class="bg-black/40">
             <div class="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
@@ -104,9 +104,9 @@
                     <div>
                         <h4 class="mb-4 text-lg font-bold">Atendimento</h4>
                         <ul class="space-y-2 text-sm">
-                            <li><a class="text-white/80 transition-colors hover:text-primary" href="#">Fale Conosco</a></li>
-                            <li><a class="text-white/80 transition-colors hover:text-primary" href="#">Perguntas Frequentes</a></li>
-                            <li><a class="text-white/80 transition-colors hover:text-primary" href="#">Política de Privacidade</a></li>
+                            <li><a class="text-white/80 transition-colors hover:text-primary" href="contact.html">Fale Conosco</a></li>
+                            <li><a class="text-white/80 transition-colors hover:text-primary" href="faq.html">Perguntas Frequentes</a></li>
+                            <li><a class="text-white/80 transition-colors hover:text-primary" href="privacy.html">Política de Privacidade</a></li>
                         </ul>
                     </div>
                     <div>

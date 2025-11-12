@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de API - Time</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .container { max-width: 600px; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h1 { color: #333; }
+        pre { background-color: #eee; padding: 10px; border-radius: 4px; overflow-x: auto; }
+        .loading { color: orange; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Teste de Request/Response de API</h1>
+        <p>Abaixo está a resposta (Response) de uma requisição (Request) simulada a um endpoint de API que retorna a hora atual.</p>
+        
+        <h2>Status do Request:</h2>
+        <div id="status-message" class="loading">Carregando dados...</div>
+
+        <h2>Resposta da API (Response JSON):</h2>
+        <pre id="api-response">Aguardando resposta...</pre>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const statusMessage = document.getElementById('status-message');
+            const apiResponse = document.getElementById('api-response');
+
+            // URL SIMULADA DA API (usamos uma API pública e gratuita)
+            const API_URL = 'https://worldtimeapi.org/api/ip';
+
+            // 1. FAZENDO O REQUEST (Requisição HTTP com fetch)
+            fetch(API_URL)
+                .then(response => {
+                    // Verifica se a requisição foi bem-sucedida (status 200-299)
+                    if (!response.ok) {
+                        throw new Error(`Erro HTTP! Status: ${response.status}`);
+                    }
+                    // Retorna o corpo da resposta como JSON
+                    return response.json();
+                })
+                .then(data => {
+                    // 2. TRATANDO O RESPONSE (Exibindo a resposta)
+                    
+                    // Atualiza a mensagem de status
+                    statusMessage.textContent = 'Sucesso! Dados carregados.';
+                    statusMessage.classList.remove('loading');
+                    statusMessage.style.color = 'green';
+
+                    // Exibe o JSON formatado na tag <pre>
+                    apiResponse.textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    // 3. TRATANDO ERROS
+                    console.error('Erro na requisição:', error);
+                    statusMessage.textContent = `Falha na requisição: ${error.message}`;
+                    statusMessage.classList.remove('loading');
+                    statusMessage.classList.add('error');
+                    
+                    apiResponse.textContent = 'Não foi possível carregar os dados da API.';
+                });
+        });
+    </script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Carrinho - Ferro e Forma</title>
+    <title>Fale Conosco - Ferro e Forma</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
@@ -11,17 +11,16 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
         tailwind.config = {
-            // Habilita o modo escuro, que é ativado pela classe "dark"
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#d46c11", // Cor primária da marca (laranja)
-                        "background-light": "#f8f7f6", // Cor de fundo para o tema claro
-                        "background-dark": "#1a1a1a",  // Cor de fundo para o tema escuro (grafite)
+                        "primary": "#d46c11",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#1a1a1a",
                     },
                     fontFamily: {
-                        "display": ["Manrope"] // Define a fonte padrão da página
+                        "display": ["Manrope"]
                     },
                     borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                 },
@@ -32,7 +31,6 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-[#221810] dark:text-[#f8f7f6]">
     <div id="cart-notification" class="fixed bottom-4 right-4 p-4 bg-green-500 text-white rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300"></div>
-    
     <header class="wood-texture bg-cover bg-center">
         <div class="bg-black/10 dark:bg-black/30">
             <div class="container mx-auto flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
@@ -70,20 +68,59 @@
             </div>
         </div>
     </header>
-    
-    <div class="container mx-auto flex-1 px-4 py-10 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-[#221810] dark:text-[#f8f7f6] mb-6">Seu Carrinho</h2>
-        <div id="empty-cart-message" class="text-center text-lg text-[#221810]/70 dark:text-[#f8f7f6]/70" style="display:none;">Seu carrinho está vazio.</div>
-        <div id="cart-items-container" class="grid gap-4 mt-6"></div>
-        <div id="cart-summary" class="text-right mt-6">
-            <h3 class="text-xl font-bold text-[#221810] dark:text-[#f8f7f6]">Total do Carrinho: R$ <span id="cart-total">0,00</span></h3>
-            <a href="checkout.html" id="checkout-btn" class="mt-4 inline-block rounded-lg bg-primary px-6 py-3 text-base font-bold text-white shadow-lg transition-transform hover:scale-105" style="display:none;">Finalizar Compra</a>
+
+    <main class="container mx-auto flex-1 px-4 py-10 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-[#221810] dark:text-[#f8f7f6] mb-8">Fale Conosco</h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-1 rounded-lg bg-white/5 dark:bg-black/10 shadow-lg p-6 h-fit">
+                <h3 class="text-xl font-bold text-primary mb-4">Informações</h3>
+                <div class="space-y-4 text-sm">
+                    <p class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary">location_on</span>
+                        <span>Av. Industrial, 1234 - Bairro Aço<br>São Paulo, SP - CEP 01234-567</span>
+                    </p>
+                    <p class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">mail</span>
+                        <span>contato@ferroeforma.com.br</span>
+                    </p>
+                    <p class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">call</span>
+                        <span>(11) 5555-4321</span>
+                    </p>
+                    <p class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">schedule</span>
+                        <span>Segunda a Sexta, 9h às 18h</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 rounded-lg bg-white/5 dark:bg-black/10 shadow-lg p-6">
+                <h3 class="text-xl font-bold text-[#221810] dark:text-[#f8f7f6] mb-4">Envie sua Mensagem</h3>
+                <form id="contact-form" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Seu Nome:</label>
+                        <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Seu E-mail:</label>
+                        <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Assunto:</label>
+                        <input type="text" id="subject" name="subject" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" />
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-[#221810]/70 dark:text-[#f8f7f6]/70">Mensagem:</label>
+                        <textarea id="message" name="message" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"></textarea>
+                    </div>
+                    <button type="submit" class="w-full rounded-lg bg-primary px-6 py-3 text-base font-bold text-white shadow-lg transition-transform hover:scale-105">Enviar Mensagem</button>
+                    <div id="contact-message" class="mt-4 text-sm font-semibold text-center hidden"></div>
+                </form>
+            </div>
         </div>
-        <div class="text-center mt-6">
-            <a href="products.html" class="rounded-lg bg-primary/20 px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-primary/30">Continuar comprando</a>
-        </div>
-    </div>
-    
+    </main>
+
     <footer class="wood-texture bg-cover bg-center text-white">
         <div class="bg-black/40">
             <div class="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
@@ -101,7 +138,7 @@
                             <li><a class="text-white/80 transition-colors hover:text-primary" href="index.html#novidades">Novidades</a></li>
                             <li><a class="text-white/80 transition-colors hover:text-primary" href="index.html#contato">Contato</a></li>
                             <li><a class="text-white/80 transition-colors hover:text-primary" href="products.html">Produtos</a></li>
-                            </ul>
+                        </ul>
                     </div>
                     <div>
                         <h4 class="mb-4 text-lg font-bold">Atendimento</h4>

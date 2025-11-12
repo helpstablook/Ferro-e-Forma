@@ -294,3 +294,251 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+// --- SIMULAÇÃO DE AUTENTICAÇÃO ---
+/**
+ * Verifica se o usuário está logado.
+ * Em um projeto real, esta função consultaria o LocalStorage, Cookies ou faria uma chamada API.
+ */
+function isUserLoggedIn() {
+    // Retorna true se houver um token ou ID de usuário salvo, por exemplo.
+    // Neste exemplo, vamos checar um item no LocalStorage chamado 'userLoggedIn'
+    return localStorage.getItem('userLoggedIn') === 'true'; 
+}
+
+// --- FUNÇÃO DE NAVEGAÇÃO DO CHECKOUT ---
+/**
+ * Gerencia a navegação ao clicar em 'Finalizar Compra'.
+ */
+function handleCheckoutNavigation(event) {
+    // 1. Previne a navegação padrão do link
+    event.preventDefault(); 
+
+    if (isUserLoggedIn()) {
+        // 2. Se logado, vai para a página de finalização de compra/pagamento
+        window.location.href = 'checkout.html';
+    } else {
+        // 3. Se NÃO logado, armazena a intenção de ir para o checkout
+        //    e redireciona para a página de login.
+        
+        // Salva a intenção para que, após o login, o usuário seja redirecionado para o checkout.
+        localStorage.setItem('redirectAfterLogin', 'checkout.html'); 
+        window.location.href = 'login.html'; 
+    }
+}
+
+// --- ADICIONA EVENT LISTENER AO BOTÃO DE CHECKOUT ---
+document.addEventListener('DOMContentLoaded', () => {
+    const checkoutBtn = document.getElementById('checkout-btn');
+
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', handleCheckoutNavigation);
+    }
+    
+    // OBS: Você pode precisar de lógica extra em login.html para ler 'redirectAfterLogin'
+    // após o login bem-sucedido.
+});
+
+// js/script.js
+
+// --- VARIÁVEIS DE SESSÃO SIMULADA ---
+/**
+ * Verifica se o usuário está logado usando o LocalStorage.
+ */
+function isUserLoggedIn() {
+    return localStorage.getItem('userLoggedIn') === 'true';
+}
+
+/**
+ * Define o status de login (Usado após login/cadastro bem-sucedido).
+ */
+function setUserLoggedIn(isLoggedIn, userName = 'Usuário') {
+    localStorage.setItem('userLoggedIn', isLoggedIn ? 'true' : 'false');
+    if (isLoggedIn) {
+        localStorage.setItem('userName', userName);
+    } else {
+        localStorage.removeItem('userName');
+    }
+}
+
+// --- FUNÇÕES DE NAVEGAÇÃO E AUTENTICAÇÃO ---
+
+/**
+ * 1. Gerencia o clique no botão 'Finalizar Compra' (em cart.html).
+ * Redireciona para checkout se logado, ou para login se deslogado.
+ */
+function handleCheckoutNavigation(event) {
+    event.preventDefault(); 
+
+    if (isUserLoggedIn()) {
+        // Se logado, vai direto para o checkout
+        window.location.href = 'checkout.html';
+    } else {
+        // Se NÃO logado, salva a intenção e redireciona para login
+        localStorage.setItem('redirectAfterLogin', 'checkout.html'); 
+        window.location.href = 'login.html'; 
+    }
+}
+
+/**
+ * 2. Atualiza os links do cabeçalho baseado no status de login.
+ * Mostra Login/Cadastro ou Nome do Usuário/Sair.
+ */
+function updateHeaderAuth() {
+    const navAuth = document.getElementById('nav-auth');
+    const navUser = document.getElementById('nav-user');
+    const userNameDisplay = document.getElementById('user-name');
+    const userName = localStorage.getItem('userName') || 'Usuário';
+
+    if (isUserLoggedIn()) {
+        if (navAuth) navAuth.style.display = 'none';
+        if (navUser) {
+            navUser.style.display = 'flex';
+            if (userNameDisplay) userNameDisplay.textContent = `Olá, ${userName}`;
+        }
+    } else {
+        if (navAuth) navAuth.style.display = 'flex';
+        if (navUser) navUser.style.display = 'none';
+    }
+}
+
+/**
+ * 3. Lógica para Logout.
+ */
+function handleLogout() {
+    setUserLoggedIn(false);
+    // Limpa a intenção de redirecionamento, se houver.
+    localStorage.removeItem('redirectAfterLogin'); 
+    // Redireciona para a Home
+    window.location.href = 'index.html'; 
+}
+
+/**
+ * 4. Lógica de Login/Redirecionamento (Usado em login.html)
+ */
+function handleLoginFormSubmit(event) {
+    event.preventDefault();
+    const emailInput = document.getElementById('login-email');
+    const passwordInput = document.getElementById('login-password');
+    const messageDisplay = document.getElementById('login-message');
+
+    // Validação básica (Simulação)
+    if (emailInput.value && passwordInput.value) {
+        const userName = emailInput.value.split('@')[0]; // Usa a parte inicial do e-mail como nome
+        setUserLoggedIn(true, userName);
+        messageDisplay.textContent = 'Login realizado com sucesso! Redirecionando...';
+        messageDisplay.className = 'mt-4 text-sm text-center font-semibold text-green-500';
+
+        // Verifica a intenção de redirecionamento
+        const redirectUrl = localStorage.getItem('redirectAfterLogin') || 'index.html';
+        localStorage.removeItem('redirectAfterLogin'); // Limpa a intenção
+        
+        // Redireciona após um pequeno atraso para o usuário ler a mensagem
+        setTimeout(() => {
+            window.location.href = redirectUrl;
+        }, 500);
+
+    } else {
+        messageDisplay.textContent = 'Por favor, preencha todos os campos.';
+        messageDisplay.className = 'mt-4 text-sm text-center font-semibold text-red-500';
+    }
+}
+
+/**
+ * 5. Lógica de Cadastro/Redirecionamento (Usado em register.html)
+ */
+function handleRegisterFormSubmit(event) {
+    event.preventDefault();
+    const nameInput = document.getElementById('register-name');
+    const emailInput = document.getElementById('register-email');
+    const passwordInput = document.getElementById('register-password');
+    
+    // Simulação de que o cadastro é bem-sucedido
+    if (nameInput.value && emailInput.value && passwordInput.value) {
+        setUserLoggedIn(true, nameInput.value); // Loga após o cadastro
+        
+        // Verifica a intenção de redirecionamento
+        const redirectUrl = localStorage.getItem('redirectAfterLogin') || 'index.html';
+        localStorage.removeItem('redirectAfterLogin'); // Limpa a intenção
+        
+        // Redireciona após o cadastro
+        window.location.href = redirectUrl;
+    }
+}
+
+// --- INICIALIZAÇÃO DE EVENTOS ---
+document.addEventListener('DOMContentLoaded', () => {
+    updateHeaderAuth(); // Atualiza o header em todas as páginas
+
+    // Evento no botão de Finalizar Compra (apenas em cart.html)
+    const checkoutBtn = document.getElementById('checkout-btn');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', handleCheckoutNavigation);
+    }
+    
+    // Evento no botão de Logout (em todas as páginas)
+    const logoutBtn = document.getElementById('logout-button');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', handleLogout);
+    }
+
+    // Evento no formulário de Login (apenas em login.html)
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', handleLoginFormSubmit);
+    }
+
+    // Evento no formulário de Cadastro (apenas em register.html)
+    const registerForm = document.getElementById('register-form');
+    if (registerForm) {
+        registerForm.addEventListener('submit', handleRegisterFormSubmit);
+    }
+});
+
+// DENTRO DE js/script.js
+
+function handleRegisterFormSubmit(event) {
+    event.preventDefault();
+    const nameInput = document.getElementById('register-name');
+    const emailInput = document.getElementById('register-email');
+    const passwordInput = document.getElementById('register-password');
+    const messageDisplay = document.getElementById('register-message'); // Adicione esta div no HTML
+
+    const email = emailInput.value;
+    const password = passwordInput.value;
+    const name = nameInput.value;
+
+    if (!email || !password || !name) {
+        messageDisplay.textContent = 'Por favor, preencha todos os campos.';
+        return;
+    }
+
+    // Chamada REAL para o Firebase Authentication
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Sucesso (Response OK)
+            messageDisplay.textContent = 'Cadastro realizado com sucesso! Redirecionando...';
+            messageDisplay.style.color = 'green';
+            
+            // Opcional: Atualizar o nome de exibição do usuário
+            return userCredential.user.updateProfile({ displayName: name });
+        })
+        .then(() => {
+            // Se chegou aqui, o usuário foi criado e logado
+            setUserLoggedIn(true, name); 
+            
+            const redirectUrl = localStorage.getItem('redirectAfterLogin') || 'index.html';
+            localStorage.removeItem('redirectAfterLogin'); 
+            
+            setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, 500);
+
+        })
+        .catch((error) => {
+            // Erro (Response de Falha)
+            messageDisplay.textContent = `Erro no cadastro: ${error.message}`;
+            messageDisplay.style.color = 'red';
+            console.error(error);
+        });
+}

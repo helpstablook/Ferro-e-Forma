@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Carrinho - Ferro e Forma</title>
+    <title>Política de Privacidade - Ferro e Forma</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
@@ -11,17 +11,16 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
         tailwind.config = {
-            // Habilita o modo escuro, que é ativado pela classe "dark"
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#d46c11", // Cor primária da marca (laranja)
-                        "background-light": "#f8f7f6", // Cor de fundo para o tema claro
-                        "background-dark": "#1a1a1a",  // Cor de fundo para o tema escuro (grafite)
+                        "primary": "#d46c11",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#1a1a1a",
                     },
                     fontFamily: {
-                        "display": ["Manrope"] // Define a fonte padrão da página
+                        "display": ["Manrope"]
                     },
                     borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                 },
@@ -32,7 +31,6 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-[#221810] dark:text-[#f8f7f6]">
     <div id="cart-notification" class="fixed bottom-4 right-4 p-4 bg-green-500 text-white rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300"></div>
-    
     <header class="wood-texture bg-cover bg-center">
         <div class="bg-black/10 dark:bg-black/30">
             <div class="container mx-auto flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
@@ -70,20 +68,41 @@
             </div>
         </div>
     </header>
-    
-    <div class="container mx-auto flex-1 px-4 py-10 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-[#221810] dark:text-[#f8f7f6] mb-6">Seu Carrinho</h2>
-        <div id="empty-cart-message" class="text-center text-lg text-[#221810]/70 dark:text-[#f8f7f6]/70" style="display:none;">Seu carrinho está vazio.</div>
-        <div id="cart-items-container" class="grid gap-4 mt-6"></div>
-        <div id="cart-summary" class="text-right mt-6">
-            <h3 class="text-xl font-bold text-[#221810] dark:text-[#f8f7f6]">Total do Carrinho: R$ <span id="cart-total">0,00</span></h3>
-            <a href="checkout.html" id="checkout-btn" class="mt-4 inline-block rounded-lg bg-primary px-6 py-3 text-base font-bold text-white shadow-lg transition-transform hover:scale-105" style="display:none;">Finalizar Compra</a>
+
+    <main class="container mx-auto flex-1 px-4 py-10 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-[#221810] dark:text-[#f8f7f6] mb-8">Política de Privacidade</h2>
+        
+        <div class="max-w-4xl mx-auto text-[#221810]/80 dark:text-[#f8f7f6]/80 space-y-6">
+            <p>A sua privacidade é importante para nós. É política da Ferro e Forma respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar em nosso site e outros sites que possuímos e operamos. Esta política é efetiva a partir de 12 de novembro de 2025.</p>
+
+            <h3 class="text-xl font-bold text-[#221810] dark:text-[#f8f7f6] pt-4">1. Informações que Coletamos</h3>
+            <p>Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. As informações coletadas incluem:</p>
+            <ul class="list-disc list-inside space-y-2 ml-4">
+                <li>Nome e Sobrenome;</li>
+                <li>Endereço de e-mail;</li>
+                <li>Endereço de entrega;</li>
+                <li>Detalhes de pagamento (não armazenamos dados completos de cartão de crédito);</li>
+            </ul>
+
+            <h3 class="text-xl font-bold text-[#221810] dark:text-[#f8f7f6] pt-4">2. Uso das Informações</h3>
+            <p>As informações coletadas são usadas exclusivamente para:</p>
+            <ul class="list-disc list-inside space-y-2 ml-4">
+                <li>Processar pedidos e concluir transações;</li>
+                <li>Melhorar a experiência de navegação e atendimento ao cliente;</li>
+                <li>Enviar newsletters e promoções (com consentimento explícito);</li>
+                <li>Cumprir obrigações legais e regulatórias.</li>
+            </ul>
+
+            <h3 class="text-xl font-bold text-[#221810] dark:text-[#f8f7f6] pt-4">3. Compartilhamento de Dados</h3>
+            <p>Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei ou para fornecer os serviços solicitados (por exemplo, com transportadoras para fins de entrega).</p>
+
+            <h3 class="text-xl font-bold text-[#221810] dark:text-[#f8f7f6] pt-4">4. Seus Direitos</h3>
+            <p>Você tem o direito de ser informado sobre como seus dados são coletados e utilizados. Você também pode solicitar o acesso, a correção ou a exclusão dos seus dados pessoais a qualquer momento, entrando em contato conosco.</p>
+
+            <p class="text-sm text-[#221810]/70 dark:text-[#f8f7f6]/70 italic pt-4">Esta política pode ser atualizada periodicamente. Recomendamos que o usuário revise esta página para quaisquer alterações.</p>
         </div>
-        <div class="text-center mt-6">
-            <a href="products.html" class="rounded-lg bg-primary/20 px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-primary/30">Continuar comprando</a>
-        </div>
-    </div>
-    
+    </main>
+
     <footer class="wood-texture bg-cover bg-center text-white">
         <div class="bg-black/40">
             <div class="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
@@ -101,7 +120,7 @@
                             <li><a class="text-white/80 transition-colors hover:text-primary" href="index.html#novidades">Novidades</a></li>
                             <li><a class="text-white/80 transition-colors hover:text-primary" href="index.html#contato">Contato</a></li>
                             <li><a class="text-white/80 transition-colors hover:text-primary" href="products.html">Produtos</a></li>
-                            </ul>
+                        </ul>
                     </div>
                     <div>
                         <h4 class="mb-4 text-lg font-bold">Atendimento</h4>
