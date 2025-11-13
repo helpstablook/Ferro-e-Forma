@@ -32,11 +32,14 @@
     <script>
         // Seus dados de configuração do Firebase
         const firebaseConfig = {
-        apiKey: "SUA_API_KEY", // <-- SUBSTITUA
-        authDomain: "SEU_PROJETO.firebaseapp.com", // <-- SUBSTITUA
-        projectId: "seu-projeto-id", // <-- SUBSTITUA
-        // ... outras configurações
-        };
+        apiKey: "AIzaSyCN10h3vvgrgCqPmgUCKHQZTBIao0l8RcY",
+        authDomain: "ferro-e-forma.firebaseapp.com",
+        databaseURL: "https://ferro-e-forma-default-rtdb.firebaseio.com",
+        projectId: "ferro-e-forma",
+        storageBucket: "ferro-e-forma.firebasestorage.app",
+        messagingSenderId: "12095267091",
+        appId: "1:12095267091:web:adc5ef6523df804ec33ae6"
+};
 
         // Inicializa o Firebase
         firebase.initializeApp(firebaseConfig);
@@ -45,7 +48,7 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-[#221810] dark:text-[#f8f7f6]">
     <div id="cart-notification" class="fixed bottom-4 right-4 p-4 bg-green-500 text-white rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300"></div>
-    <header class="wood-texture bg-cover bg-center">
+    <header class="wood-texture bg-cover bg-center" style="background-image: url('images/wood-texture.jpg');">
         <div class="bg-black/10 dark:bg-black/30">
             <div class="container mx-auto flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
                 <div class="flex items-center gap-2">
@@ -97,7 +100,7 @@
         <p class="mt-4 text-center text-sm">Já possui conta? <a href="login.html" class="text-primary hover:underline">Faça login</a></p>
     </div>
 </main>
-    <footer class="wood-texture bg-cover bg-center text-white">
+    <footer class="wood-texture bg-cover bg-center text-white" style="background-image: url('images/wood-texture.jpg');">
         <div class="bg-black/40">
             <div class="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
