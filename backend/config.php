@@ -7,7 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 define('DB_SERVER', 'localhost'); // Ou o host do seu BD
 define('DB_USERNAME', 'root');    // Seu usuário do BD
 define('DB_PASSWORD', '');        // Sua senha do BD
-define('DB_NAME', 'petshop');
+define('DB_NAME', 'ferroeforma'); // Nome do seu BD
 
 // Tentar conectar ao banco de dados MySQL
 try {
