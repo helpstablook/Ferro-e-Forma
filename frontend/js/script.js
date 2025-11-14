@@ -439,7 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Carrossel (mantido)
     const banner = document.querySelector('.relative.w-full.overflow-hidden.rounded-xl.min-h-\\[400px\\]');
     if (banner) {
-        const imagens = [ 'images/Sala.png', 'images/Banheiro.png'  , 'images/Escritorio.png', 'images/Quarto.png', 'images/Cozinha.png' ];
+        const imagens = [ 'images/Sala.png', 'images/Cozinha.png', 'images/Escritorio.png', 'images/Banheiro.png', 'images/Quarto.png' ];
         let indiceAtual = 0;
 
         if (!banner.style.backgroundImage || banner.style.backgroundImage.includes('none')) { banner.style.backgroundImage = `url('images/lookbook-industrial.jpg')`; }

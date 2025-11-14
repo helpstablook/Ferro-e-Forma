@@ -1,9 +1,20 @@
 /* style.css */
 
 .wood-texture {
-
     background-image: url("../images/wood-texture.jpg");
     box-shadow: inset 0 4px 6px -1px rgb(0 0 0 / 0.1), inset 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* 🚨 CORREÇÃO PARA MODO ESCURO: Garante que o texto digitado seja visível */
+.dark input[type="email"],
+.dark input[type="password"],
+.dark input[type="text"],
+.dark textarea {
+    /* Define a cor do texto digitado como branca ou um cinza claro */
+    color: #f8f7f6 !important;
+    /* Define um fundo escuro e borda clara para o input no modo escuro */
+    background-color: #343434 !important; 
+    border-color: #555 !important;
 }
 
 /* products.html */
@@ -27,15 +38,14 @@
     background-color: #c05f0e;
 }
 
-/* Conteúdo NOVO para style.css (adição para o Carrinho) */
-
+/* Estilos do Carrinho */
 .cart-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
     margin-bottom: 1rem;
-    background-color: rgba(255, 255, 255, 0.05); /* Um pouco de fundo escuro para destacar no dark mode */
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 0.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -58,7 +68,7 @@
 }
 
 .cart-item-price {
-    color: #d46c11; /* Cor primária */
+    color: #d46c11;
     font-weight: bold;
     margin-top: 0.25rem;
 }
@@ -70,7 +80,7 @@
     border-radius: 0.5rem;
     font-weight: 600;
     transition: background-color 0.3s;
-    text-decoration: none; /* Para o link de Finalizar Compra */
+    text-decoration: none;
     display: inline-block;
 }
 
