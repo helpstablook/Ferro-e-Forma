@@ -32,6 +32,7 @@
 <body class="bg-background-light dark:bg-background-dark font-display text-[#221810] dark:text-[#f8f7f6]">
     <div class="relative flex min-h-screen w-full flex-col">
         <div id="cart-notification" class="fixed bottom-4 right-4 p-4 bg-green-500 text-white rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300"></div>
+        
         <header class="wood-texture bg-cover bg-center" style="background-image: url('images/wood-texture.jpg');">
             <div class="bg-black/10 dark:bg-black/30">
                 <div class="container mx-auto flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
@@ -63,15 +64,16 @@
                             </button>
                         </div>
                         <a class="relative rounded-lg bg-white/20 p-2 text-white transition-colors hover:bg-white/30" href="cart.html">
-                            <span class="material-symbols-outlined">shopping_bag</span>
+                            <span class="material-symbols-outlined">shopping_cart</span>
                         </a>
                     </div>
                 </div>
             </div>
         </header>
+        
         <main class="container mx-auto flex-1 px-4 py-10 sm:px-6 lg:px-8">
             <div class="mb-12">
-                <div class="relative w-full overflow-hidden rounded-xl min-h-[400px] bg-cover bg-center" style='background-image: url("images/lookbook-industrial.jpg")'>
+                <div id="main-banner" class="relative w-full overflow-hidden rounded-xl min-h-[400px] bg-cover bg-center">
                     <div class="absolute inset-0 flex flex-col items-start justify-center bg-black/40 p-8 md:p-12">
                         <h2 class="text-4xl font-extrabold text-white md:text-5xl lg:text-6xl">Móveis Industriais com Estilo</h2>
                         <p class="mt-4 max-w-lg text-lg text-white/90">Descubra peças exclusivas que unem ferro, madeira e design contemporâneo. Crie ambientes com personalidade e durabilidade.</p>
@@ -79,6 +81,7 @@
                     </div>
                 </div>
             </div>
+            
             <section class="mb-12" id="novidades">
                 <div class="mb-6 flex items-center justify-between">
                     <h2 class="text-3xl font-bold text-[#221810] dark:text-[#f8f7f6]">Novidades da Semana</h2>
@@ -90,39 +93,37 @@
                     </button>
                     <div class="flex-1 overflow-x-auto">
                         <div class="flex gap-6 pb-4">
-                            <div class="flex-none rounded-lg bg-white/5 dark:bg-black/10 shadow-lg transition-transform hover:-translate-y-2 w-72">
-                                <div class="aspect-h-3 aspect-w-4 bg-cover bg-center h-48 rounded-t-lg" style='background-image: url("images/Mesa.png")'></div>
-                                <div class="p-4">
-                                    <h3 class="text-lg font-bold text-[#221810] dark:text-[#f8f7f6]">Mesa de Jantar Industrial</h3>
-                                    <p class="mt-2 text-sm text-[#221810]/70 dark:text-[#f8f7f6]/70">Nossa mesa de jantar industrial combina madeira maciça e estrutura metálica robusta.</p>
-                                    <div class="mt-4 flex items-center justify-between">
-                                        <span class="text-xl font-bold text-primary">R$ 1.250,00</span>
-                                        <button class="rounded-lg bg-primary/20 px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-primary/30">Adicionar ao Carrinho</button>
+                            
+                            <a href="product-detail.html?id=1" class="flex-none w-72 block">
+                                <div class="rounded-lg bg-white/5 dark:bg-black/10 shadow-lg transition-transform hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                                    <div class="aspect-h-3 aspect-w-4 bg-cover bg-center h-48 rounded-t-lg" style='background-image: url("images/Mesa.png")'></div>
+                                    <div class="p-4">
+                                        <h3 class="text-lg font-bold text-[#221810] dark:text-[#f8f7f6]">Mesa de Jantar Industrial</h3>
+                                        <p class="mt-2 text-sm text-[#221810]/70 dark:text-[#f8f7f6]/70">Nossa mesa de jantar industrial combina madeira maciça e estrutura metálica robusta.</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="flex-none rounded-lg bg-white/5 dark:bg-black/10 shadow-lg transition-transform hover:-translate-y-2 w-72">
-                                <div class="aspect-h-3 aspect-w-4 bg-cover bg-center h-48 rounded-t-lg" style='background-image: url("images/Cadeira.png")'></div>
-                                <div class="p-4">
-                                    <h3 class="text-lg font-bold text-[#221810] dark:text-[#f8f7f6]">Cadeira Industrial</h3>
-                                    <p class="mt-2 text-sm text-[#221810]/70 dark:text-[#f8f7f6]/70">Combinando conforto e estilo industrial, nossa cadeira é perfeita para escritórios e salas de jantar.</p>
-                                    <div class="mt-4 flex items-center justify-between">
-                                        <span class="text-xl font-bold text-primary">R$ 320,00</span>
-                                        <button class="rounded-lg bg-primary/20 px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-primary/30">Adicionar ao Carrinho</button>
+                            </a>
+
+                            <a href="product-detail.html?id=2" class="flex-none w-72 block">
+                                <div class="rounded-lg bg-white/5 dark:bg-black/10 shadow-lg transition-transform hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                                    <div class="aspect-h-3 aspect-w-4 bg-cover bg-center h-48 rounded-t-lg" style='background-image: url("images/Cadeira.png")'></div>
+                                    <div class="p-4">
+                                        <h3 class="text-lg font-bold text-[#221810] dark:text-[#f8f7f6]">Cadeira Industrial</h3>
+                                        <p class="mt-2 text-sm text-[#221810]/70 dark:text-[#f8f7f6]/70">Combinando conforto e estilo industrial, nossa cadeira é perfeita para escritórios e salas de jantar.</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="flex-none rounded-lg bg-white/5 dark:bg-black/10 shadow-lg transition-transform hover:-translate-y-2 w-72">
-                                <div class="aspect-h-3 aspect-w-4 bg-cover bg-center h-48 rounded-t-lg" style='background-image: url("images/Escrivaninha.png")'></div>
-                                <div class="p-4">
-                                    <h3 class="text-lg font-bold text-[#221810] dark:text-[#f8f7f6]">Escrivaninha Industrial</h3>
-                                    <p class="mt-2 text-sm text-[#221810]/70 dark:text-[#f8f7f6]/70">Funcional e cheia de estilo, ideal para home offices ou ambientes criativos.</p>
-                                    <div class="mt-4 flex items-center justify-between">
-                                        <span class="text-xl font-bold text-primary">R$ 526,00</span>
-                                        <button class="rounded-lg bg-primary/20 px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-primary/30">Adicionar ao Carrinho</button>
+                            </a>
+
+                            <a href="product-detail.html?id=3" class="flex-none w-72 block">
+                                <div class="rounded-lg bg-white/5 dark:bg-black/10 shadow-lg transition-transform hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                                    <div class="aspect-h-3 aspect-w-4 bg-cover bg-center h-48 rounded-t-lg" style='background-image: url("images/Escrivaninha.png")'></div>
+                                    <div class="p-4">
+                                        <h3 class="text-lg font-bold text-[#221810] dark:text-[#f8f7f6]">Escrivaninha Industrial</h3>
+                                        <p class="mt-2 text-sm text-[#221810]/70 dark:text-[#f8f7f6]/70">Funcional e cheia de estilo, ideal para home offices ou ambientes criativos.</p>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
+                            
                         </div>
                     </div>
                     <button class="rounded-full bg-primary/20 p-2 text-primary hover:bg-primary/30">
@@ -130,6 +131,7 @@
                     </button>
                 </div>
             </section>
+            
             <section class="mb-12" id="contato">
                 <div class="newsletter bg-primary/20 px-8 py-12 rounded-xl text-center">
                     <h2 class="text-3xl font-bold text-primary">Continue Conosco</h2>
@@ -141,6 +143,7 @@
                 </div>
             </section>
         </main>
+        
         <footer class="wood-texture bg-cover bg-center text-white" style="background-image: url('images/wood-texture.jpg');">
             <div class="bg-black/40">
                 <div class="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
@@ -172,15 +175,23 @@
                             <h4 class="mb-4 text-lg font-bold">Nos Acompanhe</h4>
                             <p class="text-sm text-white/80">Siga-nos nas redes sociais para inspirações e novidades.</p>
                             <div class="mt-4 flex gap-4">
+                                
                                 <a href="#" aria-label="Facebook" class="text-white/80 transition-colors hover:text-primary">
-                                    <span class="material-symbols-outlined text-2xl">auto_awesome</span>
+                                    <img src="images/facebook.png" alt="Facebook" class="w-6 h-6" style="filter: invert(1); display: block;" />
                                 </a>
+                                
                                 <a href="#" aria-label="Instagram" class="text-white/80 transition-colors hover:text-primary">
-                                    <span class="material-symbols-outlined text-2xl">camera_alt</span>
+                                    <img src="images/instagram.png" alt="Instagram" class="w-6 h-6" style="filter: invert(1); display: block;" />
                                 </a>
+                                
                                 <a href="#" aria-label="Pinterest" class="text-white/80 transition-colors hover:text-primary">
-                                    <span class="material-symbols-outlined text-2xl">palette</span>
+                                    <img src="images/pinterest.png" alt="Pinterest" class="w-6 h-6" style="filter: invert(1); display: block;" />
                                 </a>
+                                
+                                <a href="#" aria-label="WhatsApp" class="text-white/80 transition-colors hover:text-primary">
+                                    <img src="images/whatsapp.png" alt="WhatsApp" class="w-6 h-6" style="filter: invert(1); display: block;" />
+                                </a>
+                                
                             </div>
                         </div>
                     </div>

@@ -30,14 +30,14 @@ CREATE TABLE `produtos` (
   `nome` VARCHAR(100) NOT NULL,
   `descricao` TEXT,
   `preco` DECIMAL(10, 2) NOT NULL,
-  `imagem` VARCHAR(255), -- Caminho corrigido para 'images/'
+  `imagem` VARCHAR(255), 
   `estoque` INT NOT NULL DEFAULT 0,
   `categoria_id` INT,
   FOREIGN KEY (`categoria_id`) REFERENCES `categorias`(`id`)
 );
 
 -- --------------------------------------------------------
--- INSERÇÃO DE PRODUTOS
+-- INSERÇÃO DE PRODUTOS (Completos e Corrigidos)
 -- --------------------------------------------------------
 
 -- Sala de Estar (ID 1)
@@ -46,7 +46,7 @@ INSERT INTO `produtos` (`nome`, `descricao`, `preco`, `imagem`, `estoque`, `cate
 ('Mesa de Centro Industrial', 'Tampo em madeira de demolição e base metálica. Ideal para salas modernas.', 312.00, 'images/MesaCentro.png', 10, 1),
 ('Rack de TV Industrial', 'Rack com estrutura metálica e prateleiras de madeira. Suporte ideal para TVs grandes.', 798.00, 'images/RackTV.png', 4, 1),
 ('Painel de TV Industrial', 'Painel de TV em madeira rústica e estrutura de ferro preto, ideal para salas modernas estilo loft.', 1120.00, 'images/PainelTV.png', 3, 1),
-('Sala Completa Industrial', 'Conjunto com sofá, rack e mesa de centro, perfeito para um ambiente integrado.', 3500.00, 'images/Sala.png', 1, 1); -- PRODUTO FALTANTE
+('Sala Completa Industrial', 'Conjunto com sofá, rack e mesa de centro, perfeito para um ambiente integrado.', 3500.00, 'images/Sala.png', 1, 1);
 
 -- Assentos (ID 2)
 INSERT INTO `produtos` (`nome`, `descricao`, `preco`, `imagem`, `estoque`, `categoria_id`) VALUES
@@ -76,7 +76,7 @@ INSERT INTO `produtos` (`nome`, `descricao`, `preco`, `imagem`, `estoque`, `cate
 ('Criado-Mudo Industrial', 'Criado-mudo com estrutura metálica e gaveta em madeira de demolição.', 325.00, 'images/CriadoMudo.png', 6, 5),
 ('Guarda-Roupa Industrial', 'Guarda-roupa com portas de correr em madeira e estrutura de aço preto.', 1670.00, 'images/GuardaRoupa.png', 1, 5),
 ('Penteadeira Industrial', 'Penteadeira com tampo de madeira e estrutura metálica, espelho redondo com moldura de ferro.', 890.00, 'images/PenteadeiraIndustrial.png', 2, 5),
-('Quarto Completo Industrial', 'Conjunto de quarto com cama, criado-mudo e guarda-roupa em estilo industrial.', 3500.00, 'images/Quarto.png', 1, 5); -- PRODUTO FALTANTE
+('Quarto Completo Industrial', 'Conjunto de quarto com cama, criado-mudo e guarda-roupa em estilo industrial.', 3500.00, 'images/Quarto.png', 1, 5);
 
 -- Banheiro (ID 6)
 INSERT INTO `produtos` (`nome`, `descricao`, `preco`, `imagem`, `estoque`, `categoria_id`) VALUES
@@ -89,14 +89,14 @@ INSERT INTO `produtos` (`nome`, `descricao`, `preco`, `imagem`, `estoque`, `cate
 ('Armário Multiuso Industrial', 'Armário vertical com estrutura de aço e prateleiras internas de madeira.', 589.00, 'images/ArmarioMultiuso.png', 5, 7),
 ('Gaveteiro Industrial', 'Gaveteiro com rodízios, estrutura metálica e gavetas em MDF rústico.', 374.00, 'images/Gaveteiro.png', 6, 7),
 ('Baú Industrial', 'Baú em aço preto com detalhes em madeira rústica e acabamento fosco.', 620.00, 'images/BauIndustrial.png', 5, 7),
-('Prateleira Industrial (Multi-Uso)', 'Prateleira simples com estrutura em ferro e tábuas de madeira, perfeita para qualquer cômodo.', 199.00, 'images/Prateleira.png', 20, 7); -- PRODUTO FALTANTE
+('Prateleira Industrial (Multi-Uso)', 'Prateleira simples com estrutura em ferro e tábuas de madeira, perfeita para qualquer cômodo.', 199.00, 'images/Prateleira.png', 20, 7);
 
 -- Decoração (ID 8)
 INSERT INTO `produtos` (`nome`, `descricao`, `preco`, `imagem`, `estoque`, `categoria_id`) VALUES
 ('Luminária de Teto Industrial', 'Luminária pendente com cúpula de ferro e acabamento envelhecido.', 220.00, 'images/LuminariaTeto.png', 11, 8),
 ('Relógio de Parede Industrial', 'Relógio grande com estrutura metálica e estilo vintage industrial.', 185.00, 'images/RelogioParede.png', 10, 8),
 ('Quadro Decorativo Industrial', 'Quadro com moldura de ferro e arte em estilo urbano.', 149.00, 'images/QuadroIndustrial.png', 8, 8),
-('Luminária de Mesa Industrial', 'Luminária de mesa com braço articulado e cúpula de metal, ideal para leitura.', 250.00, 'images/Luminaria.png', 15, 8); -- PRODUTO FALTANTE
+('Luminária de Mesa Industrial', 'Luminária de mesa com braço articulado e cúpula de metal, ideal para leitura.', 250.00, 'images/Luminaria.png', 15, 8);
 
 -- --------------------------------------------------------
 -- TABELA: Usuários (users)
@@ -106,13 +106,30 @@ CREATE TABLE `users` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `name` VARCHAR(100) NOT NULL,
   `email` VARCHAR(100) NOT NULL UNIQUE,
-  `password` VARCHAR(255) NOT NULL
+  `password` VARCHAR(255) NOT NULL,
+  `role` ENUM('admin', 'user') NOT NULL DEFAULT 'user' -- NOVO: Campo de permissão
 );
 
 -- Usuários de exemplo
-INSERT INTO `users` (`name`, `email`, `password`) VALUES
-('Administrador', 'admin@lojamoveis.com', '$2y$10$N9WOF0wo6kF/XJ0iXqXqMOu23qY50.Y2.kX5qK8r9p1Gk8i.lYq.G'),
-('Cliente Teste', 'cliente@exemplo.com', '$2y$10$N9WOF0wo6kF/XJ0iXqXqMOu23qY50.Y2.kX5qK8r9p1Gk8i.lYq.G');
+INSERT INTO `users` (`name`, `email`, `password`, `role`) VALUES
+('Administrador', 'admin@lojamoveis.com', '$2y$10$N9WOF0wo6kF/XJ0iXqXqMOu23qY50.Y2.kX5qK8r9p1Gk8i.lYq.G', 'admin'), -- Senha hasheada para "123456" (exemplo)
+('Cliente Teste', 'cliente@exemplo.com', '$2y$10$N9WOF0wo6kF/XJ0iXqXqMOu23qY50.Y2.kX5qK8r9p1Gk8i.lYq.G', 'user');
+
+-- --------------------------------------------------------
+-- TABELA DE CONFIGURAÇÕES DO CMS
+-- --------------------------------------------------------
+CREATE TABLE `site_settings` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `setting_key` VARCHAR(100) NOT NULL UNIQUE, -- Ex: 'politica_privacidade'
+    `setting_value` TEXT,
+    `last_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO `site_settings` (`setting_key`, `setting_value`) VALUES
+('politica_privacidade', 'Esta é a nossa política de privacidade padrão. Por favor, edite pelo painel administrativo.'),
+('novidades_titulo', 'Destaques da Semana'),
+('novidades_texto', 'Confira os lançamentos e as ofertas exclusivas que preparamos para você neste mês!');
+
 
 -- --------------------------------------------------------
 -- TABELAS DE CARRINHO E PEDIDOS

@@ -1,7 +1,12 @@
 <?php
-require_once 'config.php'; // Garante que a sessão seja iniciada
+// backend/login.php
+require_once 'config.php'; 
 
-$response = ['success' => false, 'message' => '', 'user' => null];
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+$response = ['success' => false, 'message' => '', 'user' => null, 'redirect' => ''];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['email']);
@@ -10,7 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($email) || empty($password)) {
         $response['message'] = 'Por favor, preencha o e-mail e a senha.';
     } else {
-        $sql = "SELECT id, name, email, password FROM users WHERE email = :email";
+        // Inclui o campo 'role' na consulta
+        $sql = "SELECT id, name, email, password, role FROM users WHERE email = :email"; 
+        
         if ($stmt = $pdo->prepare($sql)) {
             $stmt->bindParam(":email", $email, PDO::PARAM_STR);
             if ($stmt->execute()) {
@@ -18,18 +25,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if ($row = $stmt->fetch()) {
                         $id = $row["id"];
                         $name = $row["name"];
+                        $role = $row["role"]; 
                         $hashed_password_from_db = $row["password"];
 
                         if (password_verify($password, $hashed_password_from_db)) {
-                            // Senha correta, iniciar sessão
+                            // Iniciar sessão
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["name"] = $name;
                             $_SESSION["email"] = $email;
+                            $_SESSION["role"] = $role; 
 
                             $response['success'] = true;
                             $response['message'] = 'Login bem-sucedido!';
-                            $response['user'] = ['id' => $id, 'name' => $name, 'email' => $email];
+                            
+                            // Lógica de redirecionamento dinâmico
+                            if ($role === 'admin') {
+                                $response['redirect'] = '../backend/admin/dashboard.php'; 
+                            } else {
+                                $response['redirect'] = '../frontend/index.html'; 
+                            }
+
+                            $response['user'] = ['id' => $id, 'name' => $name, 'email' => $email, 'role' => $role];
                         } else {
                             $response['message'] = 'A senha que você digitou não é válida.';
                         }
@@ -47,6 +64,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo json_encode($response);
     exit;
 }
-// header('Location: ../frontend/login.html');
-// exit;
 ?>
