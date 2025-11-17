@@ -150,7 +150,7 @@ function sortAndRenderProducts(productsToDisplay, sortBy) {
             break; 
     }
     
-    if (!productsContainer) return;
+    if (!productsContainer) return; 
 
     productsContainer.innerHTML = "";
     sortedProducts.forEach((product) => {
@@ -162,7 +162,7 @@ function sortAndRenderProducts(productsToDisplay, sortBy) {
         
         card.innerHTML = `
             <a href="product-detail.html?id=${product.id}" class="block">
-                <div class="aspect-h-3 aspect-w-4 bg-cover bg-center h-48 rounded-t-lg" style='background-image: url("images/${imageName}");'></div>
+                <div class="aspect-h-3 aspect-w-4 bg-cover bg-center h-80 rounded-t-lg" style='background-image: url("images/${imageName}");'></div>
             </a>
             <div class="p-4 flex flex-col flex-grow">
                 <h3 class="text-lg font-bold text-[#221810] dark:text-[#f8f7f6]">${product.nome || product.name}</h3>
@@ -449,10 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
             banner.style.backgroundImage = `url('${imagens[indiceAtual]}')`;
         }
         setInterval(trocarImagem, 4000); 
-    }
-    
-    // --- INICIALIZAÇÕES FINAIS ---
-    updateAuthUI();
+    }   
     
     if (checkoutBtn) checkoutBtn.addEventListener('click', handleCheckoutNavigation);
     
@@ -477,4 +474,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.includes('product-detail.html')) {
         setupProductDetailPage();
     }
+  // --- FAQ (Abrir/Fechar Respostas) ---
+const faqQuestions = document.querySelectorAll(".faq-question");
+if (faqQuestions.length > 0) {
+    faqQuestions.forEach((button) => {
+        button.addEventListener("click", () => {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector(".material-symbols-outlined");
+
+            if (answer.style.display === "none" || !answer.style.display) {
+                answer.style.display = "block";
+                icon.style.transform = "rotate(180deg)";
+            } else {
+                answer.style.display = "none";
+                icon.style.transform = "rotate(0deg)";
+            }
+        });
+    });
+}
+
 });
